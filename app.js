@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 //components
-const apiRouter = require("./app/router/api-router");
+const apiRouter = require("./app/routes/api-router");
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +17,7 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     app.listen(process.env.PORT, function () {
-      console.log(`Connected to DB, hurrrayyy!`);
+      console.log(`Connected to DB, boi`);
     });
   })
   .catch((error) => {
