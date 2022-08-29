@@ -1,5 +1,6 @@
 const ProductModel = require("../models/product");
 const products = require("../resources/productData.json");
+//demo
 
 const productController = {
   addProducts: async (req, res) => {
