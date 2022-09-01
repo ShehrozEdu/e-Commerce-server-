@@ -11,5 +11,6 @@ router.get("/get-products", productController.getProducts);
 
 //Users
 router.post("/signup", UserController.signUp);
+router.post("/login", UserController.login);
 
 module.exports = router;
