@@ -21,11 +21,22 @@ const productController = {
   },
   getProducts: async (req, res) => {
     try {
-      let result = await ProductModel.find();
-      res.status(200).send({
-        status: true,
-        Products: result,
+      let products = await ProductModel.find();
+      res.status(200).send(products);
+    } catch (error) {
+      res.status(500).send({
+        status: false,
+        message: "server error",
+        error,
       });
+    }
+  },
+
+  getProductByID: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const product = await ProductModel.findOne({ _id: id });
+      res.send(200).json(product);
     } catch (error) {
       res.status(500).send({
         status: false,
