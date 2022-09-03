@@ -34,9 +34,10 @@ const productController = {
 
   getProductByID: async (req, res) => {
     try {
-      const id = req.params.id;
-      const product = await ProductModel.findOne({ _id: id });
-      res.send(200).json(product);
+      const { id } = req.params;
+      // console.log(id);
+      const product = await ProductModel.findById(id);
+      res.send(product);
     } catch (error) {
       res.status(500).send({
         status: false,
