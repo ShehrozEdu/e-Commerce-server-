@@ -21,8 +21,8 @@ const electronicController = {
   },
   getElectronics: async (req, res) => {
     try {
-      let Electronic = await ElectronicModel.find();
-      res.status(200).send(Electronic);
+      let electronics = await ElectronicModel.find();
+      res.status(200).send(electronics);
     } catch (error) {
       res.status(500).send({
         status: false,
@@ -36,8 +36,8 @@ const electronicController = {
     try {
       const { id } = req.params;
       // console.log(id);
-      const Electronic = await ElectronicModel.findById(id);
-      res.send(Electronic);
+      const electronics = await ElectronicModel.findById(id);
+      res.send(electronics);
     } catch (error) {
       res.status(500).send({
         status: false,

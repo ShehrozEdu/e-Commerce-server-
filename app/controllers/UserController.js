@@ -36,6 +36,7 @@ const UserController = {
       });
       if (user) {
         return res.status(200).json({
+          user,
           message: "Login Successfully",
         });
       } else {
