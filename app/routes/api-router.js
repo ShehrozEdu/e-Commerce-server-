@@ -5,7 +5,7 @@ const router = express.Router();
 const productController = require("../controllers/productController");
 const electronicsController = require("../controllers/electronicsController");
 const UserController = require("../controllers/UserController");
-const StripePaymentController = require("../controllers/StripePaymentController");
+const PaymentController = require("../controllers/PaymentController");
 
 //Products
 router.post("/add-products", productController.addProducts);
@@ -23,8 +23,7 @@ router.get(
 //Users
 router.post("/signup", UserController.signUp);
 router.post("/login", UserController.login);
-
-//stripe
-router.post("/payment", StripePaymentController);
-
+//payment
+router.post("/payment", PaymentController.payment);
+router.post("/callback", PaymentController.callback);
 module.exports = router;
