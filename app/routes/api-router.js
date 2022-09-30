@@ -2,11 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 //Components
-
 const productController = require("../controllers/productController");
 const electronicsController = require("../controllers/electronicsController");
 const UserController = require("../controllers/UserController");
-const PaymentController = require("../controllers/payment-controller");
+const StripePaymentController = require("../controllers/StripePaymentController");
 
 //Products
 router.post("/add-products", productController.addProducts);
@@ -25,8 +24,7 @@ router.get(
 router.post("/signup", UserController.signUp);
 router.post("/login", UserController.login);
 
-//patym
-// router.post("/payment", PaymentController.addPaymentGateway);
-// router.post("/callback", PaymentController.paymentResponse);
+//stripe
+router.post("/payment", StripePaymentController);
 
 module.exports = router;
